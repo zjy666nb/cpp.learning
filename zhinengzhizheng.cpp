@@ -1,39 +1,40 @@
 #include <iostream>
+#include <memory>
 using namespace std;
-class Dontaishuzu {
+class zhinengzhizheng1 {
 private:
-	unique_ptr<int[] > data;
+	unique_ptr<int[] > date;
 	int size;
 public:
-	Dontaishuzu(int s) :size(s), data(make_unique<int[]>(s)) {
+	zhinengzhizheng1(int s) :size(s), date(make_unique<int[]>(s)) {
 		for (int i = 0;i < size;i++) {
-			data[i] = 0;
+			date[i] = 0;
 		}
 	}
 	void set(int index, int value) {
 		if (index >= 0 && index < size)
-			data[index] = value;
+			date[index] = value;
 	}
 	void print() {
 		for (int i = 0;i <= size;i++)
-			cout << data[i] << " ";
+			cout << date[i] << " ";
 	}
 	void resize(int newsize) {
 		auto newdata = make_unique<int[]>(newsize);
 		for (int i = 0;i < (newsize < size ? newsize : size);i++) {
-			newdata[i] = data[i];
+			newdata[i] = date[i];
 		}
 		for (int i = size;i < newsize;i++) {
 			newdata[i] = 0;
 		}
-		data = move(newdata);
+		date = move(newdata);
 		size = newsize;
 	}
-	
+
 
 };
 int main() {
-	Dontaishuzu arr(5);
+	zhinengzhizheng1 arr(5);
 	arr.set(0, 10);
 	arr.set(2, 30);
 	arr.print();
